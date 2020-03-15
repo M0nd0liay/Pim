@@ -3,6 +3,28 @@
 {% block content %}
 
 <h1> Pim Sweers </h1>
+<br/>
+
+{% if zipcode %}
+	{{ zipcode }}
+{% endif %}
+
+{% if api %}
+	{% if api == 'Error..... ' %}
+		Het weer kan nu even niet gevonden worden
+	{% else %}
+
+	<div class="jumbotron {{ c_color }}">
+	  <h1 class="display-4">{{ api.0.Category.Name }}</h1>
+	  <p class="lead">Current {{ api.0.ReportingArea }} Air Quality: {{ api.0.AQI }}</p>
+	  
+	  <p> {{ c_description }} </p>
+
+	</div>
+		
+	{% endif %}
+
+{% endif %}
 
 
 {% endblock %}
